@@ -65,6 +65,8 @@ const StyledContentWrapper = styled(ContentWrapper)`
         padding-right: 0;
         padding-left: 0;
     }
+
+   
     .projects {
       display: flex;
       flex-direction: row;
@@ -152,6 +154,9 @@ const StyledProject = styled(motion.div)`
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
       margin-top: 0;
     }
+    .learned {
+      background-color: black;
+    }
     .category {
       font-size: 0.875rem;
       line-height: 1rem;
@@ -161,14 +166,16 @@ const StyledProject = styled(motion.div)`
     .title {
       margin-top: 0.625rem;
       margin-bottom: 0.625rem;
-      font-size: 1.375rem;
+      font-size: 1.5rem;
       line-height: 1.625rem;
       font-weight: 700;
+      border-bottom: 3px solid black;
+      width: 39%;
     }
     .tags {
       display: flex;
       flex-wrap: wrap;
-      margin-top: 1.5rem;
+
       line-height: 1.2rem;
       span {
         margin-right: 1rem;
@@ -185,6 +192,7 @@ const StyledProject = styled(motion.div)`
         display: inline-block;
         margin-right: 2rem;
       }
+
       svg {
         width: 1.3rem;
         height: 1.3rem;
@@ -299,19 +307,26 @@ const Projects = ({ content, interestsData }) => {
                         {frontmatter.emoji} {frontmatter.category}
                       </div>
                       <div className="title">{frontmatter.title}</div>
+                      <p style={{ fontWeight: 700, fontSize: "17px" }}>
+                        {" "}
+                        Something I learned:{" "}
+                      </p>
                       <MDXRenderer>{body}</MDXRenderer>
                       <div className="tags">
-                        {frontmatter.tags.map((tag) => (
+                        {frontmatter.tags.map((tag, index) => (
                           <Underlining
                             key={tag}
                             color="secondary"
                             hoverColor="secondary"
                           >
-                            {tag}
+                            <a href={frontmatter.links[index]} target="_blank">
+                              {" "}
+                              {tag}{" "}
+                            </a>
                           </Underlining>
                         ))}
                       </div>
-                      <div className="links">
+                      {/* <div className="links">
                         {frontmatter.github && (
                           <a
                             href={frontmatter.github}
@@ -332,7 +347,7 @@ const Projects = ({ content, interestsData }) => {
                             <Icon name="external" color="#888888" />
                           </a>
                         )}
-                      </div>
+                      </div> */}
                     </div>
                     {/* If image in viewport changes, update state accordingly */}
                     <VisibilitySensor

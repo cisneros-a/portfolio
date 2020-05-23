@@ -17,7 +17,6 @@ const IndexPage = ({ data }) => (
     {/* Articles is populated via Medium RSS Feed fetch */}
     {/* <Articles /> */}
     {/* <About content={data.about.edges} /> */}
-
     <Projects
       content={data.projects.edges}
       interestsData={data.interests.edges}
@@ -138,6 +137,7 @@ export const pageQuery = graphql`
               }
             }
             tags
+            links
             position
             buttonVisible
             buttonUrl

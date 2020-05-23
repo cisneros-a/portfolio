@@ -16,13 +16,14 @@ const StyledSection = styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
+  /* background-color: black; */
 `;
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {
     width: 100%;
     height: 100%;
-    min-height: 40vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,8 +49,16 @@ const StyledContentWrapper = styled(ContentWrapper)`
     .title {
       margin-bottom: 1.5rem;
       @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-        margin-bottom: 0;
+        margin-bottom: 1rem;
       }
+    }
+
+    .name {
+      width: 40%;
+
+      display: block;
+      margin: 0;
+      border-bottom: 5px solid black;
     }
     .subtitle {
       margin-top: -0.75rem;
@@ -112,13 +121,13 @@ const Hero = ({ content }) => {
                 animate={eControls}
                 style={{ originX: 0.7, originY: 0.7 }}
               >
-                <Img
+                {/* <Img
                   className="emoji"
                   fluid={frontmatter.icon.childImageSharp.fluid}
-                />
+                /> */}
               </motion.div>
             </div>
-            {frontmatter.title}
+            <h1 className="name">{frontmatter.title}</h1>
           </h1>
           <h2 className="subtitle">
             {frontmatter.subtitlePrefix}{" "}

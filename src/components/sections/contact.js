@@ -1,14 +1,14 @@
-import React, { useRef } from "react"
-import PropTypes from "prop-types"
-import styled from "styled-components"
-import Img from "gatsby-image"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import { motion } from "framer-motion"
+import React, { useRef } from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import Img from "gatsby-image";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import { motion } from "framer-motion";
 
-import { useOnScreen } from "../../hooks"
-import ContentWrapper from "../../styles/ContentWrapper"
-import Underlining from "../../styles/Underlining"
-import Social from "../social"
+import { useOnScreen } from "../../hooks";
+import ContentWrapper from "../../styles/ContentWrapper";
+import Underlining from "../../styles/Underlining";
+import Social from "../social";
 
 const StyledSection = styled(motion.section)`
   width: 100%;
@@ -17,7 +17,7 @@ const StyledSection = styled(motion.section)`
   margin-top: 6rem;
   display: flex;
   justify-content: center;
-`
+`;
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {
@@ -57,26 +57,34 @@ const StyledContentWrapper = styled(ContentWrapper)`
       }
     }
   }
-`
+`;
 
 const Contact = ({ content }) => {
-  const { body, frontmatter } = content[0].node
+  const { body, frontmatter } = content[0].node;
 
   // Required for animation
-  const ref = useRef()
-  const onScreen = useOnScreen(ref)
+  const ref = useRef();
+  const onScreen = useOnScreen(ref);
   const variants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 } 
-  }
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
-    <StyledSection id="contact" ref={ref} variants={variants} animate={onScreen ? "visible" : "hidden"}>
+    <StyledSection
+      id="contact"
+      ref={ref}
+      variants={variants}
+      animate={onScreen ? "visible" : "hidden"}
+    >
       <StyledContentWrapper>
         <h3>{frontmatter.title}</h3>
         <MDXRenderer>{body}</MDXRenderer>
         <div className="profile">
-          <Img className="avatar" fluid={frontmatter.profileImage.childImageSharp.fluid} />
+          <Img
+            className="avatar"
+            fluid={frontmatter.profileImage.childImageSharp.fluid}
+          />
           <div className="details">
             <strong>{frontmatter.name}</strong>
             <br />
@@ -90,8 +98,8 @@ const Contact = ({ content }) => {
         <Social width="9rem" padding="0.5rem 1.25rem" withIcon />
       </StyledContentWrapper>
     </StyledSection>
-  )
-}
+  );
+};
 
 Contact.propTypes = {
   content: PropTypes.arrayOf(
@@ -102,6 +110,6 @@ Contact.propTypes = {
       }).isRequired,
     }).isRequired
   ).isRequired,
-}
+};
 
-export default Contact
+export default Contact;
