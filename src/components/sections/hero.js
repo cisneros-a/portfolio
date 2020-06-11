@@ -35,6 +35,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      font-size: 2rem;
     }
     .emoji {
       margin-left: 0.75rem;
@@ -47,19 +48,37 @@ const StyledContentWrapper = styled(ContentWrapper)`
       }
     }
     .title {
-      margin-bottom: 1.5rem;
       @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
         margin-bottom: 1rem;
       }
     }
 
-    .name {
-      width: 40%;
-
+    h1 {
+      width: 44%;
+      line-height: 2.2rem;
       display: block;
       margin: 0;
       border-bottom: 5px solid black;
+      margin-bottom: 1rem;
     }
+    /* h1:hover {
+      color: white;
+    } */
+    /* 
+    h1:before {
+      content: "";
+      position: absolute;
+      background-color: black;
+      bottom: 0;
+      left: 0;
+      right: 100%;
+      top: 0;
+      z-index: -1;
+      -webkit-transition: right 0.09s ease-in;
+    }
+    .name:hover:before {
+      right: 0;
+    } */
     .subtitle {
       margin-top: -0.75rem;
     }
@@ -114,21 +133,16 @@ const Hero = ({ content }) => {
       {/* {!isIntroDone && <SplashScreen />} */}
       <StyledContentWrapper>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={gControls}>
-          <h1 className="title">
-            <div className="greetings">
+          <div className="title">
+            <h2 className="greetings">
               {frontmatter.greetings}
               <motion.div
                 animate={eControls}
                 style={{ originX: 0.7, originY: 0.7 }}
-              >
-                {/* <Img
-                  className="emoji"
-                  fluid={frontmatter.icon.childImageSharp.fluid}
-                /> */}
-              </motion.div>
-            </div>
+              ></motion.div>
+            </h2>
             <h1 className="name">{frontmatter.title}</h1>
-          </h1>
+          </div>
           <h2 className="subtitle">
             {frontmatter.subtitlePrefix}{" "}
             {/* Hover state color can be set in useEffect hook */}

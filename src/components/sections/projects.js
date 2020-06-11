@@ -135,6 +135,9 @@ const StyledProject = styled(motion.div)`
     margin-top: 2rem;
     padding-right: 5rem;
   }
+  @media (max-width: 1020px) {
+    margin-left: 2rem;
+  }
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     justify-content: space-between;
     flex-shrink: 1;
@@ -206,7 +209,7 @@ const StyledProject = styled(motion.div)`
   .screenshot {
     width: 100%;
     max-width: 25rem;
-    height: 15rem;
+    height: 11rem;
     border-radius: ${({ theme }) => theme.borderRadius};
     box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.16);
     transition: all 0.3s ease-out;
@@ -215,7 +218,7 @@ const StyledProject = styled(motion.div)`
       box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.32);
     }
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-      height: 18.75rem;
+      height: 15rem;
     }
   }
 `;
@@ -380,9 +383,9 @@ const Projects = ({ content, interestsData }) => {
           rel="nofollow noopener noreferrer"
           aria-label="External Link"
         >
-          <Button type="button" textAlign="center" color="primary" center>
+          {/* <Button type="button" textAlign="center" color="primary" center>
             {sectionDetails.frontmatter.buttonText}
-          </Button>
+          </Button> */}
         </motion.a>
       )}
     </StyledSection>

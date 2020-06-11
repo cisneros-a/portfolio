@@ -1,16 +1,16 @@
-import React from "react"
-import PropTypes from "prop-types"
-import styled from "styled-components"
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-import config from "../config/"
-import Icon from "./icons"
+import config from "../config/";
+import Icon from "./icons";
 
-const { socialMedia } = config
+const { socialMedia } = config;
 
 const StyledSocialWrapper = styled.div`
   display: grid;
   /* Calculate columns, depending on how many profiles there are */
-  grid-template-columns: repeat(${({ itemCount }) => itemCount + 1}, auto);
+  grid-template-columns: repeat(3, auto);
   justify-content: start;
   justify-items: start;
 
@@ -19,12 +19,12 @@ const StyledSocialWrapper = styled.div`
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
+  /* -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
     display: none;
-  }
+  } */
 
   /* Workaround: https://stackoverflow.com/questions/38993170/last-margin-padding-collapsing-in-flexbox-grid-layout */
   &::after {
@@ -62,7 +62,7 @@ const StyledSocialWrapper = styled.div`
       margin-right: 1rem;
     }
   }
-`
+`;
 
 const StyledSocialProfile = styled.a`
   width: ${({ width }) => (width ? width : "auto")};
@@ -96,7 +96,7 @@ const StyledSocialProfile = styled.a`
     margin-right: 0.5rem;
     margin-bottom: -0.05rem;
   }
-`
+`;
 
 const Social = ({ width, padding, fontSize, fontWeight, withIcon }) => (
   <StyledSocialWrapper itemCount={socialMedia.length}>
@@ -115,10 +115,10 @@ const Social = ({ width, padding, fontSize, fontWeight, withIcon }) => (
         >
           {withIcon ? <Icon name={name} /> : null} {name}
         </StyledSocialProfile>
-      )
+      );
     })}
   </StyledSocialWrapper>
-)
+);
 
 Social.propTypes = {
   width: PropTypes.string,
@@ -126,6 +126,6 @@ Social.propTypes = {
   fontSize: PropTypes.string,
   fontWeight: PropTypes.string,
   withIcon: PropTypes.bool,
-}
+};
 
-export default Social
+export default Social;

@@ -25,9 +25,11 @@ const StyledContentWrapper = styled(ContentWrapper)`
     justify-content: center;
     padding-right: 0;
     padding-left: 0;
-    @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-      padding-right: 2.5rem;
+    @media (max-width: 1020px;) {
+      display: grid;
       padding-left: 2.5rem;
+      grid-template-columns: 1fr 1fr;
+      background-color: grey;
     }
     .section-title {
       padding-right: 2.5rem;
@@ -70,6 +72,12 @@ const StyledInterests = styled.div`
     overflow: visible;
     padding: 0;
   }
+  @media (max-width: 1020px) {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, 10rem);
+
+    padding-left: 5vw;
+  }
   /* Show scrollbar if desktop and wrapper width > viewport width */
   @media (hover: hover) {
     &::-webkit-scrollbar {
@@ -104,6 +112,10 @@ const StyledInterests = styled.div`
     border-radius: ${({ theme }) => theme.borderRadius};
     .icon {
       margin-right: 0.5rem;
+    }
+
+    @media (max-width: 1020px) {
+      width: 10rem;
     }
   }
 `;
