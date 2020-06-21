@@ -1,8 +1,8 @@
-import { createContext } from "react"
+import { createContext } from "react";
 
 const Context = createContext({
-  isIntroDone: false,
+  isIntroDone: true,
   setIsIntroDone: () => {},
-})
+});
 
-export default Context
+export default Context;

@@ -15,12 +15,12 @@ const IndexPage = ({ data }) => (
     <SEO title="Adrian Cisneros Portfolio" />
     <Hero content={data.hero.edges} />
     {/* Articles is populated via Medium RSS Feed fetch */}
-    {/* <Articles /> */}
     <About content={data.about.edges} />
     <Projects
       content={data.projects.edges}
       interestsData={data.interests.edges}
     />
+    <Articles />
     <Contact content={data.contact.edges} />
   </Layout>
 );
