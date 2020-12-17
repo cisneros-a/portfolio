@@ -1,5 +1,5 @@
-const config = require('./src/config');
-const theme = require('./src/styles/Theme')
+const config = require("./src/config");
+const theme = require("./src/styles/Theme");
 
 module.exports = {
   siteMetadata: {
@@ -7,6 +7,7 @@ module.exports = {
     description: config.siteDescription,
     author: config.author,
     siteUrl: config.siteUrl,
+    image: "/public/static/image.png",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -60,4 +61,4 @@ module.exports = {
       },
     },
   ],
-}
+};
